@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "374618447591",
+    "project_id": "recette-iam",
+    "storage_bucket": "recette-iam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374618447591:android:1c1355ab271071e18c8c42",
+        "android_client_info": {
+          "package_name": "com.example.recipe_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3I3_wDE-FIQb3ICDzVKemH6k-F-wGlJc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
