@@ -6,5 +6,5 @@ Application de recettes.
 
 ## Ettudiant
 #### Djiadji DIAW: 220762
-### Penda DIOUF: 
-### Awa Mbaye:
+#### Penda DIOUF: 
+#### Awa Mbaye:
