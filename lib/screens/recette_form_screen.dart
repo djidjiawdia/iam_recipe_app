@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:iam_app_recette/models/Recette.dart';
+import 'package:iam_app_recette/services/recette_service.dart';
 import 'package:iam_app_recette/widgets/dialog_box_widget.dart';
 import 'package:iam_app_recette/widgets/form_container_widget.dart';
 
@@ -10,7 +12,9 @@ class RecetteFormScreen extends StatefulWidget {
 }
 
 class _RecetteFormScreenState extends State<RecetteFormScreen> {
+  final RecetteService _recetteService = RecetteService();
   List<String> ingredients = [];
+  bool _loading = false;
 
   final TextEditingController _ingredientController = TextEditingController();
   final TextEditingController _nomController = TextEditingController();
@@ -60,19 +64,51 @@ class _RecetteFormScreenState extends State<RecetteFormScreen> {
             const SizedBox(height: 20),
             Wrap(spacing: 6, children: chipList()),
             const SizedBox(height: 20),
-            ElevatedButton(
-                onPressed: () => ajouterRecette,
-                child: const Text(
-                  "Enregistrer",
-                  style: TextStyle(fontSize: 18),
-                ))
+            GestureDetector(
+              onTap: ajouterRecette,
+              child: Container(
+                width: double.infinity,
+                height: 45,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.amber),
+                child: Center(
+                  child: _loading
+                      ? const CircularProgressIndicator(color: Colors.white)
+                      : const Text(
+                          'Enregistrer',
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 
-  void ajouterRecette() {}
+  void ajouterRecette() {
+    String nom = _nomController.text;
+    String description = _descriptionController.text;
+    String image = _imageController.text;
+
+    setState(() {
+      _loading = true;
+    });
+
+    Future<Recette> recette = _recetteService
+        .create(Recette(nom: nom, description: description, image: image));
+
+    if (recette != null) {
+      Navigator.of(context).pop();
+    }
+
+    setState(() {
+      _loading = false;
+    });
+  }
 
   List<Widget> chipList() {
     List<Widget> widgets = [];

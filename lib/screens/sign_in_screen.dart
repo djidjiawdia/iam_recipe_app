@@ -51,6 +51,7 @@ class _SignInScreenState extends State<SignInScreen> {
               FormContainerWidget(
                 controller: _passwordController,
                 hintText: 'Mot de passe',
+                maxLines: 1,
                 isPasswordField: true,
               ),
               const SizedBox(height: 20),
@@ -124,8 +125,6 @@ class _SignInScreenState extends State<SignInScreen> {
           context,
           MaterialPageRoute(builder: (context) => const HomeScreen()),
           (route) => false);
-    } else {
-      print("some errors");
     }
   }
 }

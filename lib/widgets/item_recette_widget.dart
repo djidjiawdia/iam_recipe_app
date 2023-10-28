@@ -17,6 +17,8 @@ class ItemRecetteWidget extends StatelessWidget {
               child: Image.network(
                 recette.image,
                 fit: BoxFit.cover,
+                width: 70,
+                height: 90,
               ),
             ),
             title: Text(

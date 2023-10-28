@@ -51,6 +51,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               FormContainerWidget(
                 controller: _passwordController,
                 hintText: 'Mot de passe',
+                maxLines: 1,
                 isPasswordField: true,
               ),
               const SizedBox(height: 20),
